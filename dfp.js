@@ -16,11 +16,11 @@ function parseFile (indata, outdata, delimiter = ';') {
       const line =lines[i].trim();
       if(line === '') continue;
 
-      const [review, sentiment] = line.split(delimeter).map(item=> item.trim());
+      const [review, sentiment] = line.split(delimiter).map(item=> item.trim());
       const shortReview = review.substring(0, 20);
       console.log(shortReview)
 
-      fs.appendFileSync (outdata, `${sentimen}${delimiter}${shortReview}\n`, 'utf-8');
+      fs.appendFileSync (outdata, `${sentiment}${delimiter}${shortReview}\n`, 'utf-8');
       recordcount ++;
     }
   }
