@@ -5,13 +5,31 @@ function parseFile (indata, outdata, delimiter = ';') {
     return -1; //returns -1 if data exists
   }
   if (fs.existsSync(outdata)) {
-    fs.unlinkSync(outdata); //if output file does already exist then its deleted using fs.unlinksync
+     fs.unlinkSync(outdata); //if output file does already exist then its deleted using fs.unlinksync
   }
  const data = fs.readFileSync(indata, 'utf-8')
  const lines = data.split('\n');
- const transformedLines = [];
+ const transformedLine = [];
  let totalRecordsExported = 0;
+
+for (let i = 1 ; i< lines.length; i++) {
+  const line = lines[i].trim ();
+  if (line === '') continue;
+  const elements = line.split(delimiter)
+  if (elements.length < 2 ) contiune;
+
+  let review = elements[0].trim();
+  const sentiment = elemets [1].trim();
+  review = review.slice(0,20);
+
+  const transformedLine = `${sentiment}${delimiter}${review}`;
 }
+
+
+}
+
+
+
 
 
 
